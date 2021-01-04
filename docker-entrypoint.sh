@@ -16,7 +16,8 @@ then
   echo Initializing
   wait_for_postgres
   echo Starting
-  contacts
+#  contacts
+  ping google.com
 fi
 
 exec "$@"
