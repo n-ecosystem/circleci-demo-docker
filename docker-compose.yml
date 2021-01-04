@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  contacts:
+    build: .
+    container_name: contacts
+    environment:
+      CONTACTS_DB_HOST: postgres
+      CONTACTS_DB_PORT: 5432
+      CONTACTS_DB_URL: postgres://root@postgres/root?sslmode=disable
+#      CONTACTS_DB_MIGRATIONS: /migrations
+    ports:
+      - "80:8007"
+
+  postgres:
+    container_name: postgres
+    image: postgres:13.1-alpine
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=aE008tn2JyZYSAed
+      - POSTGRES_DB=scantest
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
